@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <title>Risotto Recipe</title>
   </head>
   <body>
@@ -12,7 +13,7 @@
         <h1>AI Risotto Recipe Generator</h1>
       </header>
       <main>
-        <form>
+        <form id="recipe-generator-form">
           <input
             type="text"
             placeholder="Enter recipe..."
@@ -23,17 +24,8 @@
           />
           <input type="submit" class="submit-button" />
         </form>
-        <div class="poem">
-          <div class="steps">Step 1</div>
-          In a medium pot over medium-high heat, heat broth until steaming.
-          Reduce heat to low, cover, and keep warm.
-          <br />
-          <div class="steps">Step 2</div>
-          Meanwhile, in a large skillet over medium heat, melt 4 tablespoons
-          butter. Add onion and 1/2 teaspoon salt and cook, stirring
-          occasionally, until softened, translucent, and sweet to the taste, 8
-          to 10 minutes. Add rice and cook, stirring occasionally, until
-          translucent around the edges, 1 to 2 minutes more
+        <div class="recipe">
+          <div class="steps" id="recipe"></div>
         </div>
       </main>
       <footer>
