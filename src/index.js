@@ -1,15 +1,28 @@
-function generateRecipe(event) {
-  event.preventDefault();
-  let recipeElement = document.querySelector("#recipe");
+function displayRecipe(response) {
+  console.log("Recipe generated");
 
   new Typewriter("#recipe", {
-    strings: [
-      "Bring stock to a simmer in a large saucepan. Keep warm over low heat. Heat oil in a Dutch over over medium heat, then add onion.Add arborio rice and salt, then cook for 1 minute.Add 1/2 cup stock and cook until absorbed, stirring frequently.Stir in 1 1/2 cups stock; cook 4 minutes or until liquid is nearly absorbed, stirring constantly.Add remaining stock, 3/4 cup at a time, stirring nearly constantly until each portion is absorbed before adding the next. Remove risotto from the heat, then add in remaining stock, butter, pepper, and cheese.",
-    ],
+    strings: response.data.answer,
     autoStart: true,
     cursor: "",
     delay: 1,
   });
+}
+
+function generateRecipe(event) {
+  event.preventDefault();
+
+  let instructionsInput = document.querySelector("#user-instructions");
+  let apiKey = "21dbt88fo9e3fd05aafa4a622bab45f2";
+  let prompt = `User instructions are: Generate a recipe on ${instructionsInput.value}`;
+  let context =
+    "You are a great cook and an expert when it comes to food. Your mission is to generate a simple recipe in basic HTML. Make sure to follow user instructions";
+  let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
+
+  console.log("Generating poem");
+  console.log(`Prompt: ${prompt}`);
+  console.log(`Context: ${context}`);
+  axios.get(apiUrl).then(displayRecipe);
 }
 
 let recipeFormElement = document.querySelector("#recipe-generator-form");
