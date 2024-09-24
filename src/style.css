@@ -63,9 +63,15 @@ form {
   padding: 14px 24px;
 }
 
+.submit-button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(129, 7, 81);
+}
+
 .recipe {
   font-size: 16px;
-  background-color: #fff;
+  background-color: white;
   padding: 20px;
   line-height: 2;
   border-left: 3px solid rgb(185, 54, 98);
